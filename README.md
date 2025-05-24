@@ -1,107 +1,63 @@
-# Korean Bible App Project Plan
+# 🌿 Daily Grace – 감사 일기장 웹앱
 
-## Overview
-A detailed 8-week, one-person project plan for building a Korean Bible app with the following MVP features:
-- Text display & navigation (book/chapter/verse picker)
-- Full-text search
-- Bookmarks, highlights & notes
-- Audio playback
-- Offline support
-- Settings: font size, dark mode
+> _“범사에 감사하라” (데살로니가전서 5:18)_
+
+Daily Grace는 하루를 돌아보며 감사한 일들을 기록하고, 성경 말씀과 함께 마음을 정리할 수 있는 **감성 일기장 웹 애플리케이션**입니다.  
+자신만의 태그로 일기를 정리하고, 랜덤한 말씀을 통해 위로와 은혜를 누려보세요.  
+Frontend는 **React + TailwindCSS**, Backend는 **NestJS + JWT 인증** 기반으로 구성되었습니다.
 
 ---
 
-## Week 1: Project Setup & Planning
-**Day 1:** Define scope & MVP features  
-**Day 2:** Research translation versions & licensing terms  
-**Day 3:** Select tech stack (Flutter vs. React Native; Firebase vs. custom backend)  
-**Day 4:** Set up development environment, create GitHub repo & CI pipeline  
-**Day 5:** Draft wireframes and user flows in Figma
+## 🧩 주요 기능
 
-**Deliverable:** Project scope document, approved wireframes, repo & CI setup
+### ✍️ 감사 일기
+- 하루 동안 감사한 일을 텍스트로 기록
+- 사용자 정의 태그로 일기 분류 가능
+- 랜덤한 성경 말씀 자동 삽입 (선택 가능)
 
----
+### 🔍 일기 조회 및 검색
+- 날짜, 키워드, 태그 기반 검색/필터링
+- "말씀이 포함된 일기만 보기" 기능 제공
 
-## Week 2: Data Preparation
-**Day 1:** Acquire Korean Bible text files (e.g., 개역개정, 새번역)  
-**Day 2:** Parse and convert text to structured JSON (book/chapter/verse)  
-**Day 3:** Normalize punctuation, spacing, and special characters  
-**Day 4:** Design database schema for text and user data  
-**Day 5:** Import JSON into database; verify data integrity
+### 📊 통계/시각화 (옵션)
+- 감사 히트맵: 일기 작성 빈도 시각화
+- 자주 사용된 단어 & 태그 집계
 
-**Deliverable:** Clean JSON data, database schema, imported dataset
-
----
-
-## Week 3: Basic App Structure
-**Day 1:** Initialize Flutter/React Native project  
-**Day 2:** Implement navigation skeleton (tab & drawer navigation)  
-**Day 3:** Integrate database connection / API client  
-**Day 4:** Build book & chapter listing screens  
-**Day 5:** Render verse text with basic styling
-
-**Deliverable:** Navigable prototype showing static text
+### 💌 보너스 기능
+- 미래의 나에게 보내는 감사 편지 (이메일 예약 전송)
+- 비공개 모드 일기 (비밀번호 보호)
+- 감정 분석 기반 태그 추천 (긍정/부정)
 
 ---
 
-## Week 4: Search & Navigation
-**Day 1:** Set up search service (Algolia/Elasticsearch)  
-**Day 2:** Index Bible text for search  
-**Day 3:** Build search UI with filters (testament, book)  
-**Day 4:** Implement navigation from search results to verses  
-**Day 5:** Test search accuracy and performance
+## ⚙️ 기술 스택
 
-**Deliverable:** Functional full-text search feature
-
----
-
-## Week 5: User Annotation Features
-**Day 1:** Implement bookmarks (UI + storage)  
-**Day 2:** Implement verse highlighting  
-**Day 3:** Build notes feature with text input & save  
-**Day 4:** Create backend endpoints (if needed) for user data sync  
-**Day 5:** Test CRUD operations for bookmarks, highlights, and notes
-
-**Deliverable:** Working annotations & notes synced across sessions
+| 역할 | 기술 |
+|------|------|
+| 프론트엔드 | React.js, Next.js, TailwindCSS |
+| 백엔드 | NestJS, TypeScript, REST API |
+| 인증 | JWT + Passport.js |
+| 데이터베이스 | MongoDB or PostgreSQL |
+| 배포 | Vercel (FE), Railway/Render (BE) |
+| 기타 | Swagger API 문서, dotenv, ESLint |
 
 ---
 
-## Week 6: Audio & Offline Support
-**Day 1:** Source audio recordings & split by chapter  
-**Day 2:** Host audio files and set up streaming endpoints  
-**Day 3:** Implement in-app audio player controls  
-**Day 4:** Add offline caching for text & audio  
-**Day 5:** Test offline reading & listening workflows
+## 📁 디렉터리 구조 (예시)
 
-**Deliverable:** Offline-capable text and audio playback
-
----
-
-## Week 7: UI Polish & Settings
-**Day 1:** Add font-size adjustment controls  
-**Day 2:** Implement dark mode  
-**Day 3:** Build Settings screen (language, theme, audio quality)  
-**Day 4:** Perform localization review in Korean  
-**Day 5:** General UI/UX polish (spacing, icons, responsiveness)
-
-**Deliverable:** Polished UI with user settings
-
----
-
-## Week 8: Testing & Release Prep
-**Day 1:** Conduct end-to-end testing on multiple devices  
-**Day 2:** Fix any critical bugs & performance issues  
-**Day 3:** Prepare App Store & Google Play assets (screenshots, descriptions)  
-**Day 4:** Write user documentation & README  
-**Day 5:** Submit builds for review
-
-**Deliverable:** Submitted apps to stores, project documentation
-
----
-
-## Next Steps & Maintenance
-- **Post-launch monitoring:** Track crashes & analytics (Firebase/Amplitude)  
-- **User feedback:** Triage issues, plan minor/major releases  
-- **Future enhancements:** Parallel-view translations, reading plans, social sharing
-
-Good luck building your Korean Bible app—feel free to iterate on this plan as you go!
+```bash
+daily-grace/
+├── frontend/         # React 앱 (Next.js)
+│   ├── components/
+│   ├── pages/
+│   ├── styles/
+│   └── ...
+├── backend/          # NestJS API 서버
+│   ├── src/
+│   │   ├── auth/
+│   │   ├── journal/
+│   │   ├── verse/
+│   │   └── ...
+│   └── ...
+├── .env.example
+└── README.md
